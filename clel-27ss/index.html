@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27SS CLEL COLLECTION</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap">
+<style>:root{
+  --bg:#ffffff; --ink:#151515; --ink-2:#5f5f5f; --ink-3:#9a9a9a; --rule:#e6e6e6; --panel:#f6f6f6;
+  --fs-0:11px; --fs-1:12px; --fs-2:13.5px; --fs-3:16px; --fs-4:22px; --fs-5:clamp(34px,6vw,64px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --bg:#121212; --ink:#ececec; --ink-2:#b3b3b3; --ink-3:#7c7c7c; --rule:#2a2a2a; --panel:#1a1a1a; }
+}
+:root[data-theme="dark"]{ --bg:#121212; --ink:#ececec; --ink-2:#b3b3b3; --ink-3:#7c7c7c; --rule:#2a2a2a; --panel:#1a1a1a; }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Instrument Sans","Helvetica Neue",Helvetica,Arial,"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;font-size:var(--fs-2);line-height:1.6;font-feature-settings:"palt";}
+a{color:inherit;text-decoration:none}
+.hdr{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;font-size:var(--fs-0);letter-spacing:.16em;text-transform:uppercase}
+.hdr .brand{font-weight:600;letter-spacing:.32em}
+.hdr nav{display:flex;gap:22px}
+.hdr nav a{color:var(--ink-2)}
+.hdr nav a:hover,.hdr nav a:focus-visible{color:var(--ink);outline:none;text-decoration:underline;text-underline-offset:4px}
+.title{padding:64px 24px 40px;max-width:1100px;margin:0 auto}
+.title .eyebrow{font-size:var(--fs-0);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin:22px 0 0}
+.title h1{font-size:var(--fs-5);font-weight:300;letter-spacing:.02em;line-height:1.05;margin:0;text-wrap:balance}
+.title h1 .ds{display:block;font-size:var(--fs-2);font-weight:400;letter-spacing:.1em;text-transform:lowercase;margin-top:14px;color:var(--ink-2)}
+.title p{max-width:34em;margin:26px 0 0;color:var(--ink-2)}
+.notice{max-width:1100px;margin:0 auto 40px;padding:0 24px}
+.notice div{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 0;font-size:var(--fs-1);color:var(--ink-2);display:flex;gap:18px;flex-wrap:wrap}
+.notice b{font-weight:600;color:var(--ink);letter-spacing:.12em;font-size:var(--fs-0);text-transform:uppercase}
+.it-name{color:var(--ink)}
+.it-meta{font-size:var(--fs-0);color:var(--ink-3);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+/* ---- look grid (ssstein collection-style framed cards) ---- */
+.grid{max-width:1180px;margin:0 auto;padding:8px 24px 96px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px}
+.card{display:flex;flex-direction:column;gap:12px;min-width:0}
+.frame{display:block;width:100%;margin:0;padding:10px;border:1px solid var(--rule);background:var(--panel);cursor:zoom-in;transition:border-color .25s ease}
+.frame:hover,.frame:focus-visible{border-color:var(--ink);outline:none}
+.frame img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;background:var(--panel)}
+.cap{font-size:var(--fs-1);color:var(--ink-2);padding:0 2px}
+.cap-no{display:flex;justify-content:space-between;letter-spacing:.18em;text-transform:uppercase;font-size:var(--fs-0);color:var(--ink);border-bottom:1px solid var(--rule);padding-bottom:7px;margin-bottom:8px}
+.cap-no .of{color:var(--ink-3);font-variant-numeric:tabular-nums}
+.cap-no .tag,.lb-no .tag{font-style:normal;color:var(--ink-3);letter-spacing:.14em;margin-left:10px}
+.cap-items li{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ---- lightbox ---- */
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:56px 72px}
+.lb-body{display:grid;grid-template-columns:minmax(0,auto) minmax(220px,300px);gap:32px;align-items:end;max-height:100%;max-width:1100px}
+.lb-img{display:block;height:calc(100vh - 112px);max-height:900px;width:auto;max-width:100%;object-fit:contain;background:var(--panel)}
+.lb-cap{font-size:var(--fs-1);color:var(--ink-2);padding-bottom:4px}
+.lb-no{display:flex;justify-content:space-between;letter-spacing:.18em;text-transform:uppercase;font-size:var(--fs-0);color:var(--ink);border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:12px}
+.lb-no .of{color:var(--ink-3);font-variant-numeric:tabular-nums}
+.lb-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.lb-items li{display:flex;flex-direction:column;gap:1px}
+.it-name{color:var(--ink)}
+.it-meta{font-size:var(--fs-0);color:var(--ink-3);letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.lb-close,.lb-prev,.lb-next{position:absolute;background:none;border:0;color:var(--ink);font:300 30px/1 "Instrument Sans",Helvetica,Arial,sans-serif;cursor:pointer;padding:10px 14px}
+.lb-close{top:14px;right:18px}
+.lb-prev{left:14px;top:50%;transform:translateY(-50%)}
+.lb-next{right:14px;top:50%;transform:translateY(-50%)}
+.lb-close:focus-visible,.lb-prev:focus-visible,.lb-next:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+@media (max-width:760px){
+  .lb{padding:52px 12px 16px}
+  .lb-body{grid-template-columns:1fr;gap:12px;overflow:auto;max-height:100%}
+  .lb-img{height:auto;max-height:70vh;width:auto;max-width:100%;margin:0 auto}
+  .lb-prev,.lb-next{top:auto;bottom:8px;transform:none}
+}
+.cap-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.cap-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.like{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--rule);border-radius:999px;padding:5px 10px 5px 8px;color:var(--ink-2);font:inherit;font-size:var(--fs-0);letter-spacing:.06em;cursor:pointer;flex:none;font-variant-numeric:tabular-nums;transition:border-color .2s ease,color .2s ease}
+.like:hover,.like:focus-visible{border-color:var(--ink);color:var(--ink);outline:none}
+.like .heart{width:12px;height:12px;display:inline-block;color:inherit}
+.like .heart svg{display:block;width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
+.like.on{border-color:var(--ink);color:var(--ink)}
+.like.on .heart svg{fill:currentColor}
+.lb-like{margin:0 0 12px;padding:7px 12px 7px 10px}
+.lb-like .like-t{margin-left:2px}
+.ranking{max-width:1100px;margin:0 auto;padding:56px 24px 72px;border-top:1px solid var(--rule)}
+.ranking[hidden]{display:none}
+.rank-list{list-style:none;margin:0;padding:0}
+.rank-list li{border-bottom:1px solid var(--rule)}
+.rank-list a{display:grid;grid-template-columns:7em minmax(0,1fr) 4em;gap:14px;align-items:baseline;padding:11px 0;font-size:var(--fs-1);color:var(--ink-2)}
+.rank-list a:hover .rk-no{text-decoration:underline;text-underline-offset:4px}
+.rk-no{color:var(--ink);letter-spacing:.14em;text-transform:uppercase;font-size:var(--fs-0);white-space:nowrap}
+.rk-items{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rk-n{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+@media (max-width:760px){.rank-list a{grid-template-columns:6em minmax(0,1fr) 3em;gap:8px}}
+.items{max-width:1100px;margin:0 auto;padding:72px 24px 40px;border-top:1px solid var(--rule)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 26px}
+.sec-h h2{font-size:var(--fs-4);font-weight:300;letter-spacing:.06em;margin:0}
+.sec-h span{font-size:var(--fs-0);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-1);min-width:720px}
+th{font-weight:500;text-align:left;font-size:var(--fs-0);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:0 12px 10px 0;border-bottom:1px solid var(--ink)}
+td{padding:11px 12px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.td-no{color:var(--ink-3);font-variant-numeric:tabular-nums;width:3em}
+.td-name{color:var(--ink);min-width:16em}
+.td-note{display:block;font-size:var(--fs-0);color:var(--ink-3);margin-top:2px}
+.td-code,.td-price,.td-rel{font-variant-numeric:tabular-nums;white-space:nowrap}
+.td-line{white-space:nowrap;color:var(--ink-2)}
+.td-color{color:var(--ink-2);min-width:8em}
+.td-price{text-align:right}
+.concept{max-width:1100px;margin:0 auto;padding:56px 24px 96px;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.concept h2{font-size:var(--fs-4);font-weight:300;letter-spacing:.06em;margin:0 0 18px}
+.concept p{margin:0 0 14px;color:var(--ink-2);max-width:36em}
+.concept dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 18px;font-size:var(--fs-1);min-width:0}
+.concept dt{color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;font-size:var(--fs-0);padding-top:2px}
+.concept dd{margin:0;color:var(--ink-2);overflow-wrap:anywhere}
+.ftr{border-top:1px solid var(--rule);padding:22px 24px 40px;font-size:var(--fs-0);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;padding-bottom:64px}
+  .hdr{padding:12px 16px}
+  .hdr nav{gap:14px}
+  .title,.notice,.grid,.items,.concept{padding-left:16px;padding-right:16px}
+  .concept{grid-template-columns:1fr}
+}
+
+/* ---- vote (Firebase版のみ) ---- */
+.votebar{position:sticky;top:43px;z-index:4;background:var(--bg);border-bottom:1px solid var(--rule)}
+.votebar>div{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:var(--fs-1);color:var(--ink-2);flex-wrap:wrap}
+.votebar b{font-weight:500;color:var(--ink);letter-spacing:.12em;text-transform:uppercase;font-size:var(--fs-0);margin-right:8px}
+.votebar .vb-left{display:flex;align-items:center;gap:8px}
+.votebar .vb-o,.votebar .vb-w,.votebar .vb-done{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:500}
+.votebar.complete .vb-done{color:var(--ink)}
+.votebar .vb-help{color:var(--ink-3);font-size:var(--fs-0)}
+.vote{display:inline-flex;gap:6px;flex:none}
+.vote button{display:inline-flex;align-items:center;gap:5px;background:none;border:1px solid var(--rule);border-radius:999px;padding:5px 10px;color:var(--ink-2);font:inherit;font-size:var(--fs-0);letter-spacing:.06em;cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease}
+.vote button .mk{font-size:13px;line-height:1}
+.vote button:hover,.vote button:focus-visible{border-color:var(--ink);color:var(--ink);outline:none}
+.vote button.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.card.is-voted .frame{border-color:var(--ink)}
+.lb .vote{margin:0 0 12px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;font-size:var(--fs-1);border-radius:4px;z-index:60;max-width:90vw;text-align:center}
+.toast[hidden]{display:none}
+@media (max-width:760px){.votebar{top:41px}.votebar>div{padding:8px 16px}.votebar .vb-help{display:none}}
+
+/* ---- film (ルックとテキストの間) ---- */
+.film{max-width:1100px;margin:0 auto;padding:8px 24px 88px;border-top:1px solid var(--rule)}
+.film .sec-h{padding-top:56px}
+.film-wrap{max-width:420px;margin:0 auto}
+.film-frame{border:1px solid var(--rule);background:var(--panel);padding:10px}
+.film video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#111;object-fit:cover}
+.film-cap{display:flex;justify-content:space-between;font-size:var(--fs-0);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);padding:10px 2px 0}
+.film-note{font-size:var(--fs-1);color:var(--ink-2);text-align:center;margin:14px 0 0}
+@media (max-width:760px){
+  .film{padding:0 12px 64px}
+  .film .sec-h{padding-top:36px}
+  .film-wrap{max-width:none}
+  .film-frame{padding:6px}
+  .title{padding:40px 16px 28px}
+  .title h1{font-size:40px}
+  .grid{padding-left:12px;padding-right:12px;gap:18px 10px}
+  .frame{padding:6px}
+  .cap-no{font-size:10px}
+  .cap-items li{font-size:11px}
+  .vote button{padding:5px 8px}
+  .items{padding:48px 12px 24px}
+  .concept{padding:40px 16px 64px}
+}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <a class="brand" href="#top">CLEL</a>
+  <nav><a href="#look">Look</a><a href="#film">Film</a><a href="#items">Items</a><a href="#concept">Concept</a></nav>
+</header>
+<section class="title" id="top">
+  <h1>27SS CLEL COLLECTION<span class="ds">digital sample</span></h1>
+  <p class="eyebrow">Spring / Summer 2027 · 30 items · 25 looks</p>
+  <p>黒・チャコール・グレーを軸に、サックスブルーやディープグリーン、クレイをひと差しだけ。レザーブルゾンとソフトなテーラリング、ギザコットンのニット、センタープレスのワイドパンツ。企画段階の新商品候補をルックとして先行公開します。</p>
+</section>
+<div class="notice"><div><b>Notice</b><span>本ページの画像はAI生成によるイメージです。商品仕様・カラー・上代・発売時期は企画段階のため変更になる場合があります。画像をクリックすると拡大表示します。</span></div></div>
+<div class="votebar" id="votebar"><div><div class="vb-left"><b>Vote</b><span>あと ○ <span class="vb-o">4</span> · ◎ <span class="vb-w">1</span></span><span class="vb-done">0 / 5</span></div><span class="vb-help">気になるルックに○、いちばん好きな1つに◎。合計5つまで。もう一度押すと取り消せます。</span></div></div><div class="toast" id="toast" hidden></div>
+<main class="grid" id="look">
+
+<article class="card" data-i="0" data-look="look01" id="look01">
+  <button class="frame" type="button" aria-label="LOOK 01 を拡大">
+    <img src="looks/look01.jpg" alt="LOOK 01" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 01</span><span class="of">01 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>シングルレザーブルゾン</li><li>レギュラーカラーシャツ</li><li>ワンタック センタープレス ストレートスラックス</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look01"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 01 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 01 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="1" data-look="look02" id="look02">
+  <button class="frame" type="button" aria-label="LOOK 02 を拡大">
+    <img src="looks/look02.jpg" alt="LOOK 02" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 02</span><span class="of">02 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ピークドラペル 1ボタン ダブルブレスト テーラードジャケット</li><li>Giza タンクトップ</li><li>パンタロン センタープレス フレアスラックス(新色)</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look02"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 02 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 02 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="2" data-look="look03" id="look03">
+  <button class="frame" type="button" aria-label="LOOK 03 を拡大">
+    <img src="looks/look03.jpg" alt="LOOK 03" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 03</span><span class="of">03 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ディープテクスチャー ライダースジャケット</li><li>ルーズネック メランジ 長袖ニット</li><li>レザーコーティング デニムパンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look03"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 03 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 03 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="3" data-look="look04" id="look04">
+  <button class="frame" type="button" aria-label="LOOK 04 を拡大">
+    <img src="looks/look04.jpg" alt="LOOK 04" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 04</span><span class="of">04 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザツイルコットン テーラードジャケット</li><li>Giza ニットシャツ オープンカラー型</li><li>ウォッシュドコットンリネン パンツ</li><li>ドレープカーフレザー ノットデザイン ショルダーバッグ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look04"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 04 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 04 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="4" data-look="look05" id="look05">
+  <button class="frame" type="button" aria-label="LOOK 05 を拡大">
+    <img src="looks/look05.jpg" alt="LOOK 05" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 05</span><span class="of">05 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>レザーコーティング デニムジャケット</li><li>ギザコットン ワイドリブ 長袖ニットポロ</li><li>ワンタック センタープレス ストレートスラックス</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look05"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 05 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 05 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="5" data-look="look06" id="look06">
+  <button class="frame" type="button" aria-label="LOOK 06 を拡大">
+    <img src="looks/look06.jpg" alt="LOOK 06" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 06</span><span class="of">06 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ウォッシュドコットンリネン テーラード 長袖</li><li>ウールブレンドスムース ワイドTシャツ</li><li>パンタロン センタープレス フレアスラックス(新色)</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look06"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 06 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 06 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="6" data-look="look07" id="look07">
+  <button class="frame" type="button" aria-label="LOOK 07 を拡大">
+    <img src="looks/look07.jpg" alt="LOOK 07" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 07</span><span class="of">07 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザコットン天竺 クルー&amp;Vネック 長袖ニット</li><li>レギュラーカラーシャツ</li><li>ウォッシュドコットンリネン パンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look07"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 07 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 07 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="7" data-look="look08" id="look08">
+  <button class="frame" type="button" aria-label="LOOK 08 を拡大">
+    <img src="looks/look08.jpg" alt="LOOK 08" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 08</span><span class="of">08 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>COOLMAX カットシアサッカー オープンカラー半袖シャツ</li><li>Giza タンクトップ</li><li>レザーコーティング デニムパンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look08"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 08 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 08 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="8" data-look="look09" id="look09">
+  <button class="frame" type="button" aria-label="LOOK 09 を拡大">
+    <img src="looks/look09.jpg" alt="LOOK 09" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 09</span><span class="of">09 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>Giza ニットシャツ オープンカラー型</li><li>ウールブレンドスムース ワイドTシャツ</li><li>ウォッシュドコットンリネン パンツ</li><li>ドレープカーフレザー ノットデザイン ショルダーバッグ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look09"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 09 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 09 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="9" data-look="look10" id="look10">
+  <button class="frame" type="button" aria-label="LOOK 10 を拡大">
+    <img src="looks/look10.jpg" alt="LOOK 10" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 10</span><span class="of">10 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ルーズネック メランジ 長袖ニット</li><li>パンタロン センタープレス フレアスラックス(新色)</li><li>ドレープカーフレザー ノットデザイン ショルダーバッグ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look10"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 10 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 10 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="10" data-look="look11" id="look11">
+  <button class="frame" type="button" aria-label="LOOK 11 を拡大">
+    <img src="looks/look11.jpg" alt="LOOK 11" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 11</span><span class="of">11 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザコットン天竺 クルー&amp;Vネック 長袖ニット</li><li>ワンタック センタープレス ストレートスラックス</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look11"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 11 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 11 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="11" data-look="look12" id="look12">
+  <button class="frame" type="button" aria-label="LOOK 12 を拡大">
+    <img src="looks/look12.jpg" alt="LOOK 12" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 12</span><span class="of">12 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>シングルレザーブルゾン</li><li>ルーズネック メランジ 長袖ニット</li><li>レザーコーティング デニムパンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look12"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 12 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 12 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="12" data-look="look13" id="look13">
+  <button class="frame" type="button" aria-label="LOOK 13 を拡大">
+    <img src="looks/look13.jpg" alt="LOOK 13" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 13</span><span class="of">13 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>Giza クルー型カーディガン</li><li>Giza ボーダー長袖Tシャツ(新色)</li><li>ギザコットン デニムパンツ</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look13"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 13 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 13 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="13" data-look="look14" id="look14">
+  <button class="frame" type="button" aria-label="LOOK 14 を拡大">
+    <img src="looks/look14.jpg" alt="LOOK 14" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 14</span><span class="of">14 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザツイルコットン テーラードジャケット</li><li>ギザオックスフォード クロップド レギュラー長袖シャツ</li><li>ワンタック センタープレス ストレートスラックス</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look14"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 14 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 14 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="14" data-look="look15" id="look15">
+  <button class="frame" type="button" aria-label="LOOK 15 を拡大">
+    <img src="looks/look15.jpg" alt="LOOK 15" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 15</span><span class="of">15 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザ 半袖シャツブルゾン</li><li>Giza タンクトップ</li><li>ギザ ハーフパンツ</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look15"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 15 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 15 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="15" data-look="look16" id="look16">
+  <button class="frame" type="button" aria-label="LOOK 16 を拡大">
+    <img src="looks/look16.jpg" alt="LOOK 16" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 16</span><span class="of">16 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>Giza 半袖ブロードシャツ</li><li>ウールブレンドスムース ワイドTシャツ</li><li>ギザコットン デニムパンツ</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look16"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 16 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 16 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="16" data-look="look17" id="look17">
+  <button class="frame" type="button" aria-label="LOOK 17 を拡大">
+    <img src="looks/look17.jpg" alt="LOOK 17" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 17</span><span class="of">17 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ウォッシュドコットンリネン シャツ 長袖</li><li>ウォッシュドコットンリネン パンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look17"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 17 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 17 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="17" data-look="look18" id="look18">
+  <button class="frame" type="button" aria-label="LOOK 18 を拡大">
+    <img src="looks/look18.jpg" alt="LOOK 18" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 18</span><span class="of">18 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ウォッシュドコットンリネン テーラード 長袖</li><li>Giza 鹿子ポロ(再販・新色)</li><li>パンタロン センタープレス フレアスラックス(新色)</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look18"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 18 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 18 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="18" data-look="look19" id="look19">
+  <button class="frame" type="button" aria-label="LOOK 19 を拡大">
+    <img src="looks/look19.jpg" alt="LOOK 19" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 19 <em class="tag">Variation</em></span><span class="of">19 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ウォッシュドコットンリネン テーラード 長袖</li><li>ウォッシュドコットンリネン シャツ 長袖</li><li>Giza タンクトップ</li><li>ウォッシュドコットンリネン パンツ</li><li>ドレープカーフレザー ノットデザイン ショルダーバッグ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look19"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 19 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 19 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="19" data-look="look20" id="look20">
+  <button class="frame" type="button" aria-label="LOOK 20 を拡大">
+    <img src="looks/look20.jpg" alt="LOOK 20" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 20 <em class="tag">Variation</em></span><span class="of">20 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>レザーコーティング デニムジャケット</li><li>ギザオックスフォード クロップド レギュラー長袖シャツ</li><li>ワンタック センタープレス ストレートスラックス</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look20"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 20 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 20 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="20" data-look="look21" id="look21">
+  <button class="frame" type="button" aria-label="LOOK 21 を拡大">
+    <img src="looks/look21.jpg" alt="LOOK 21" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 21 <em class="tag">Variation</em></span><span class="of">21 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ギザ 半袖シャツブルゾン</li><li>Giza ボーダー長袖Tシャツ(新色)</li><li>ギザコットン デニムパンツ</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look21"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 21 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 21 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="21" data-look="look22" id="look22">
+  <button class="frame" type="button" aria-label="LOOK 22 を拡大">
+    <img src="looks/look22.jpg" alt="LOOK 22" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 22 <em class="tag">Variation</em></span><span class="of">22 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>ピークドラペル 1ボタン ダブルブレスト テーラードジャケット</li><li>COOLMAX カットシアサッカー オープンカラー半袖シャツ</li><li>パンタロン センタープレス フレアスラックス(新色)</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look22"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 22 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 22 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="22" data-look="look23" id="look23">
+  <button class="frame" type="button" aria-label="LOOK 23 を拡大">
+    <img src="looks/look23.jpg" alt="LOOK 23" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 23 <em class="tag">Variation</em></span><span class="of">23 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>Giza クルー型カーディガン</li><li>レギュラーカラーシャツ</li><li>ウォッシュドコットンリネン パンツ</li><li>ドレープカーフレザー ノットデザイン ショルダーバッグ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look23"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 23 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 23 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="23" data-look="look24" id="look24">
+  <button class="frame" type="button" aria-label="LOOK 24 を拡大">
+    <img src="looks/look24.jpg" alt="LOOK 24" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 24 <em class="tag">Variation</em></span><span class="of">24 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>シングルレザーブルゾン</li><li>Giza 鹿子ポロ(再販・新色)</li><li>レザーコーティング デニムパンツ</li><li>ストレッチカーフレザー スクエアトゥ ミドルブーツ</li></ul><div class="vote" data-look="look24"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 24 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 24 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+<article class="card" data-i="24" data-look="look25" id="look25">
+  <button class="frame" type="button" aria-label="LOOK 25 を拡大">
+    <img src="looks/look25.jpg" alt="LOOK 25" width="1024" height="1536">
+  </button>
+  <div class="cap">
+    <div class="cap-no"><span>LOOK 25 <em class="tag">Variation</em></span><span class="of">25 / 25</span></div>
+    <div class="cap-row"><ul class="cap-items"><li>Giza ニットシャツ オープンカラー型</li><li>Giza タンクトップ</li><li>ギザ ハーフパンツ</li><li>ビブラムハイソール カウレザー ローカットスニーカー</li></ul><div class="vote" data-look="look25"><button class="vo" type="button" aria-pressed="false" aria-label="LOOK 25 に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK 25 を一番に"><span class="mk">◎</span>一番</button></div></div>
+  </div>
+</article>
+</main>
+<section class="film" id="film"><div class="sec-h"><h2>Film</h2><span>collection film · 20s</span></div><div class="film-wrap"><div class="film-frame"><video src="film/clel_27ss_film_web.mp4" poster="film/poster.jpg" playsinline muted autoplay loop controls preload="metadata"></video><div class="film-cap"><span>27SS CLEL COLLECTION</span><span>20s</span></div></div><p class="film-note">音声はありません。タップで一時停止/再生できます。</p></div></section>
+<section class="items" id="items">
+  <div class="sec-h"><h2>Items</h2><span>30 items · Spring / Summer 2027 candidates</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>No</th><th>Item</th><th>Color</th><th>仮品番 / 生地No</th><th>Line</th><th style="text-align:right">上代(税込)</th><th>Release</th></tr></thead>
+    <tbody><tr><td class="td-no">01</td><td class="td-name">シングルレザーブルゾン<span class="td-note">ラムレザー / ジップアップ / シングルカラー</span></td><td class="td-color">ブラック</td><td class="td-code">de71006</td><td class="td-line">CLEL node.</td><td class="td-price">¥38,500</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">02</td><td class="td-name">ディープテクスチャー ライダースジャケット<span class="td-note">深いシボ加工 / リピート型</span></td><td class="td-color">ブラック</td><td class="td-code">ce71007</td><td class="td-line">CLEL</td><td class="td-price">¥9,900</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">03</td><td class="td-name">レザーコーティング デニムジャケット<span class="td-note">豊島 / コーティングデニム</span></td><td class="td-color">ブラック</td><td class="td-code">de71007</td><td class="td-line">CLEL node.</td><td class="td-price">¥16,500</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">04</td><td class="td-name">ピークドラペル 1ボタン ダブルブレスト テーラードジャケット<span class="td-note">スーパーファインウール100%</span></td><td class="td-color">チャコール</td><td class="td-code">de71001</td><td class="td-line">CLEL node.</td><td class="td-price">¥25,300</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">05</td><td class="td-name">ギザツイルコットン テーラードジャケット<span class="td-note">ギザツイル(モリリン / 霍田)</span></td><td class="td-color">ダークグレー</td><td class="td-code">ce71015</td><td class="td-line">CLEL</td><td class="td-price">¥13,200</td><td class="td-rel">1月中旬</td></tr><tr><td class="td-no">06</td><td class="td-name">ウォッシュドコットンリネン テーラード 長袖<span class="td-note">霍田 / セットアップ想定 ¥8,800〜9,900</span></td><td class="td-color">ブラック</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">上代調整中</td><td class="td-rel">3月</td></tr><tr><td class="td-no">07</td><td class="td-name">レギュラーカラーシャツ<span class="td-note">スーパーファインウール100%</span></td><td class="td-color">ブラック / チャコール</td><td class="td-code">de71003</td><td class="td-line">CLEL node.</td><td class="td-price">¥12,100</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">08</td><td class="td-name">Giza ニットシャツ オープンカラー型<span class="td-note">リブギザニット生地(厚め)</span></td><td class="td-color">ブラック / チャコール</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">2月中旬</td></tr><tr><td class="td-no">09</td><td class="td-name">COOLMAX カットシアサッカー オープンカラー半袖シャツ<span class="td-note">モリリン27SS展示会ピック / N・T 59/41</span></td><td class="td-color">ブラックストライプ</td><td class="td-code">MM27SS-NB-3S</td><td class="td-line">CLEL(展示会PICK)</td><td class="td-price">上代未定</td><td class="td-rel">5月想定</td></tr><tr><td class="td-no">10</td><td class="td-name">ウールブレンドスムース ワイドTシャツ<span class="td-note">モリリン27SS展示会ピック / リヨセル・ウール・PU</span></td><td class="td-color">ライトグレー杢</td><td class="td-code">MM27SS-ZE-17-B</td><td class="td-line">CLEL(展示会PICK)</td><td class="td-price">上代未定</td><td class="td-rel">4月想定</td></tr><tr><td class="td-no">11</td><td class="td-name">ルーズネック メランジ 長袖ニット<span class="td-note">DROP候補</span></td><td class="td-color">杢チャコール / ブラック</td><td class="td-code">ce71002</td><td class="td-line">CLEL</td><td class="td-price">¥4,950</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">12</td><td class="td-name">ギザコットン ワイドリブ 長袖ニットポロ<span class="td-note">艶編みギザニット生地(厚め)</span></td><td class="td-color">グレー</td><td class="td-code">ce71003</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">13</td><td class="td-name">ギザコットン天竺 クルー&amp;Vネック 長袖ニット<span class="td-note">天竺ギザニット生地(厚め) / 再販・目付UP</span></td><td class="td-color">チャコール / ライトグレー</td><td class="td-code">ce71009</td><td class="td-line">CLEL</td><td class="td-price">¥4,950</td><td class="td-rel">1月中旬</td></tr><tr><td class="td-no">14</td><td class="td-name">Giza タンクトップ<span class="td-note">ギザスムースTシャツ生地</span></td><td class="td-color">ブラック</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥2,200</td><td class="td-rel">3月中旬</td></tr><tr><td class="td-no">15</td><td class="td-name">パンタロン センタープレス フレアスラックス(新色)<span class="td-note">定番型の新色</span></td><td class="td-color">ブラック / チャコール</td><td class="td-code">ce63030-27-1</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">16</td><td class="td-name">ワンタック センタープレス ストレートスラックス<span class="td-note">スーパーファインウール100%</span></td><td class="td-color">チャコール / ブラック</td><td class="td-code">de71002</td><td class="td-line">CLEL node.</td><td class="td-price">¥16,500</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">17</td><td class="td-name">レザーコーティング デニムパンツ<span class="td-note">豊島 / コーティングデニム</span></td><td class="td-color">ブラック</td><td class="td-code">CLEPt1839</td><td class="td-line">CLEL node.</td><td class="td-price">¥9,900</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">18</td><td class="td-name">ウォッシュドコットンリネン パンツ<span class="td-note">霍田 / ¥5,940〜6,600想定</span></td><td class="td-color">ブラック / チャコール / ライトグレー</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">上代調整中</td><td class="td-rel">3月</td></tr><tr><td class="td-no">19</td><td class="td-name">ストレッチカーフレザー スクエアトゥ ミドルブーツ<span class="td-note">本革</span></td><td class="td-color">ブラック</td><td class="td-code">de71004</td><td class="td-line">CLEL node.</td><td class="td-price">¥22,000</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">20</td><td class="td-name">ドレープカーフレザー ノットデザイン ショルダーバッグ<span class="td-note">本革</span></td><td class="td-color">ブラック</td><td class="td-code">de71005</td><td class="td-line">CLEL node.</td><td class="td-price">¥14,300</td><td class="td-rel">2月上旬</td></tr><tr><td class="td-no">21</td><td class="td-name">ギザオックスフォード クロップド レギュラー長袖シャツ<span class="td-note">ギザオックスフォード / トレンド: 最良のベーシック(コープコア)</span></td><td class="td-color">サックスブルー</td><td class="td-code">ce71005</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">22</td><td class="td-name">ギザコットン デニムパンツ<span class="td-note">ギザコットンデニム / ワイドストレート</span></td><td class="td-color">インディゴ</td><td class="td-code">ce71008</td><td class="td-line">CLEL</td><td class="td-price">¥9,900</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">23</td><td class="td-name">ビブラムハイソール カウレザー ローカットスニーカー<span class="td-note">本革 / VIBRAMソール</span></td><td class="td-color">ブラック</td><td class="td-code">ce63035</td><td class="td-line">CLEL</td><td class="td-price">¥13,970</td><td class="td-rel">1月上旬</td></tr><tr><td class="td-no">24</td><td class="td-name">Giza クルー型カーディガン<span class="td-note">天竺ギザニット生地(厚め) / トレンド: #NewPrep</span></td><td class="td-color">ディープグリーン</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">2月下旬</td></tr><tr><td class="td-no">25</td><td class="td-name">Giza ボーダー長袖Tシャツ(新色)<span class="td-note">天竺ギザニット生地(厚め) / トレンド: ハーバーライン(ブルトンストライプ)</span></td><td class="td-color">ネイビー×エクリュ</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥3,630</td><td class="td-rel">1月中旬</td></tr><tr><td class="td-no">26</td><td class="td-name">Giza 半袖ブロードシャツ<span class="td-note">ギザブロード / トレンド: レトロリフレッシュ(ストライプシャツの復活)</span></td><td class="td-color">ブルーストライプ</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥4,950</td><td class="td-rel">4月下旬</td></tr><tr><td class="td-no">27</td><td class="td-name">ギザ 半袖シャツブルゾン<span class="td-note">ギザツイル / トレンド: オフシーズン(シャツジャケット)</span></td><td class="td-color">ウェットサンド</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥6,600</td><td class="td-rel">5月上旬</td></tr><tr><td class="td-no">28</td><td class="td-name">ギザ ハーフパンツ<span class="td-note">ギザツイル / トレンド: ファンタジーリゾート(テーラードショーツ)</span></td><td class="td-color">チャコール</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥5,500</td><td class="td-rel">5月上旬</td></tr><tr><td class="td-no">29</td><td class="td-name">Giza 鹿子ポロ(再販・新色)<span class="td-note">ギザ鹿子 / トレンド: レトロリフレッシュ(ポロ)</span></td><td class="td-color">アイスブルー</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">¥4,400</td><td class="td-rel">4月下旬</td></tr><tr><td class="td-no">30</td><td class="td-name">ウォッシュドコットンリネン シャツ 長袖<span class="td-note">霍田 / トレンド: 発掘(アースカラー・乾いた粘土の風合い)</span></td><td class="td-color">クレイ(ジンジャーブラウン)</td><td class="td-code">—</td><td class="td-line">CLEL</td><td class="td-price">上代調整中</td><td class="td-rel">3月</td></tr></tbody>
+  </table></div>
+</section>
+<section class="concept" id="concept">
+  <div>
+    <h2>Concept</h2>
+    <p>27SSのCLELは、色を足しすぎずに「形と素材」で季節を作る。上半身はレザーブルゾン、コーティングデニム、肩の落ちたテーラードで陰影を、下半身はセンタープレスのフレアとワンタックのストレートで縦のラインを。春先はスーパーファインウールとギザコットン、初夏はウォッシュドリネンとシアサッカーへ素材を移して、同じ黒・チャコール・グレーのまま軽くなっていく。</p><p>そこに27SSのトレンドから、サックスブルーのオックスフォード、ディープグリーンのカーディガン、ブルトンボーダー、ウェットサンドのシャツブルゾン、クレイのリネンシャツを一点ずつ。差し色は常にひとつまで。</p><p>LOOK 01〜18は淡いグレーのスタジオで一着ごとの落ち感を、LOOK 19〜25(Variation)はコンクリートと木床の会場で、同じ30品番を重ね着で組み替えたバリエーションを見せる。</p>
+  </div>
+  <dl>
+    <dt>Palette</dt><dd>ベース: ブラック / チャコール / ミディアムグレー / ライトグレー杢。差し色(1ルック1点まで): サックスブルー / アイスブルー / ディープグリーン / ネイビー×エクリュ / ウェットサンド / クレイ / インディゴ。</dd><dt>Silhouette</dt><dd>トップスはやや大きめ、ボトムはワイドでセンタープレス。ジャストフィットは作らない。</dd><dt>Material</dt><dd>スーパーファインウール、ラムレザー、レザーコーティングデニム、ギザコットン(天竺・リブ・鹿子・ツイル・オックス・ブロード)、ウォッシュドコットンリネン、COOLMAXシアサッカー、ウールブレンドスムース。</dd><dt>Season flow</dt><dd>1〜2月 レザー×ウール×カーディガン → 3〜4月 ツイル×リネン×ストライプシャツ → 5〜6月 シャツブルゾン×ショーツ×シアサッカー。</dd><dt>Trend refs</dt><dd>ソフトなサルトリアル / コープコア(最良のベーシック) / レトロリフレッシュ(ポロ・ストライプBD) / ハーバーライン(ブルトンストライプ) / オフシーズン(シャツジャケット) / 発掘(アースカラー・粘土の風合い)。</dd>
+  </dl>
+</section>
+<footer class="ftr"><span>27SS CLEL COLLECTION · digital sample</span><span>Images generated for planning preview</span></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="ルック拡大表示">
+  <button class="lb-close" type="button" aria-label="閉じる">×</button>
+  <button class="lb-prev" type="button" aria-label="前のルック">‹</button>
+  <button class="lb-next" type="button" aria-label="次のルック">›</button>
+  <div class="lb-body">
+    <img class="lb-img" alt="">
+    <div class="lb-cap">
+      <div class="lb-no"></div>
+      <div class="vote" data-look=""><button class="vo" type="button" aria-pressed="false" aria-label="LOOK  に○で投票"><span class="mk">○</span>投票</button><button class="vw" type="button" aria-pressed="false" aria-label="LOOK  を一番に"><span class="mk">◎</span>一番</button></div>
+      <ul class="lb-items"></ul>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var DATA=[{"no": "01", "items": [{"name": "シングルレザーブルゾン", "meta": "CLEL node. · ¥38,500", "color": "ブラック"}, {"name": "レギュラーカラーシャツ", "meta": "CLEL node. · ¥12,100", "color": "ブラック / チャコール"}, {"name": "ワンタック センタープレス ストレートスラックス", "meta": "CLEL node. · ¥16,500", "color": "チャコール / ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "02", "items": [{"name": "ピークドラペル 1ボタン ダブルブレスト テーラードジャケット", "meta": "CLEL node. · ¥25,300", "color": "チャコール"}, {"name": "Giza タンクトップ", "meta": "CLEL · ¥2,200", "color": "ブラック"}, {"name": "パンタロン センタープレス フレアスラックス(新色)", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "03", "items": [{"name": "ディープテクスチャー ライダースジャケット", "meta": "CLEL · ¥9,900", "color": "ブラック"}, {"name": "ルーズネック メランジ 長袖ニット", "meta": "CLEL · ¥4,950", "color": "杢チャコール / ブラック"}, {"name": "レザーコーティング デニムパンツ", "meta": "CLEL node. · ¥9,900", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "04", "items": [{"name": "ギザツイルコットン テーラードジャケット", "meta": "CLEL · ¥13,200", "color": "ダークグレー"}, {"name": "Giza ニットシャツ オープンカラー型", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ドレープカーフレザー ノットデザイン ショルダーバッグ", "meta": "CLEL node. · ¥14,300", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "05", "items": [{"name": "レザーコーティング デニムジャケット", "meta": "CLEL node. · ¥16,500", "color": "ブラック"}, {"name": "ギザコットン ワイドリブ 長袖ニットポロ", "meta": "CLEL · ¥5,500", "color": "グレー"}, {"name": "ワンタック センタープレス ストレートスラックス", "meta": "CLEL node. · ¥16,500", "color": "チャコール / ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "06", "items": [{"name": "ウォッシュドコットンリネン テーラード 長袖", "meta": "CLEL · 上代調整中", "color": "ブラック"}, {"name": "ウールブレンドスムース ワイドTシャツ", "meta": "CLEL(展示会PICK) · 上代未定", "color": "ライトグレー杢"}, {"name": "パンタロン センタープレス フレアスラックス(新色)", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "07", "items": [{"name": "ギザコットン天竺 クルー&Vネック 長袖ニット", "meta": "CLEL · ¥4,950", "color": "チャコール / ライトグレー"}, {"name": "レギュラーカラーシャツ", "meta": "CLEL node. · ¥12,100", "color": "ブラック / チャコール"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "08", "items": [{"name": "COOLMAX カットシアサッカー オープンカラー半袖シャツ", "meta": "CLEL(展示会PICK) · 上代未定", "color": "ブラックストライプ"}, {"name": "Giza タンクトップ", "meta": "CLEL · ¥2,200", "color": "ブラック"}, {"name": "レザーコーティング デニムパンツ", "meta": "CLEL node. · ¥9,900", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "09", "items": [{"name": "Giza ニットシャツ オープンカラー型", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ウールブレンドスムース ワイドTシャツ", "meta": "CLEL(展示会PICK) · 上代未定", "color": "ライトグレー杢"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ドレープカーフレザー ノットデザイン ショルダーバッグ", "meta": "CLEL node. · ¥14,300", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "10", "items": [{"name": "ルーズネック メランジ 長袖ニット", "meta": "CLEL · ¥4,950", "color": "杢チャコール / ブラック"}, {"name": "パンタロン センタープレス フレアスラックス(新色)", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ドレープカーフレザー ノットデザイン ショルダーバッグ", "meta": "CLEL node. · ¥14,300", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "11", "items": [{"name": "ギザコットン天竺 クルー&Vネック 長袖ニット", "meta": "CLEL · ¥4,950", "color": "チャコール / ライトグレー"}, {"name": "ワンタック センタープレス ストレートスラックス", "meta": "CLEL node. · ¥16,500", "color": "チャコール / ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "12", "items": [{"name": "シングルレザーブルゾン", "meta": "CLEL node. · ¥38,500", "color": "ブラック"}, {"name": "ルーズネック メランジ 長袖ニット", "meta": "CLEL · ¥4,950", "color": "杢チャコール / ブラック"}, {"name": "レザーコーティング デニムパンツ", "meta": "CLEL node. · ¥9,900", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "13", "items": [{"name": "Giza クルー型カーディガン", "meta": "CLEL · ¥5,500", "color": "ディープグリーン"}, {"name": "Giza ボーダー長袖Tシャツ(新色)", "meta": "CLEL · ¥3,630", "color": "ネイビー×エクリュ"}, {"name": "ギザコットン デニムパンツ", "meta": "CLEL · ¥9,900", "color": "インディゴ"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": ""}, {"no": "14", "items": [{"name": "ギザツイルコットン テーラードジャケット", "meta": "CLEL · ¥13,200", "color": "ダークグレー"}, {"name": "ギザオックスフォード クロップド レギュラー長袖シャツ", "meta": "CLEL · ¥5,500", "color": "サックスブルー"}, {"name": "ワンタック センタープレス ストレートスラックス", "meta": "CLEL node. · ¥16,500", "color": "チャコール / ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "15", "items": [{"name": "ギザ 半袖シャツブルゾン", "meta": "CLEL · ¥6,600", "color": "ウェットサンド"}, {"name": "Giza タンクトップ", "meta": "CLEL · ¥2,200", "color": "ブラック"}, {"name": "ギザ ハーフパンツ", "meta": "CLEL · ¥5,500", "color": "チャコール"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": ""}, {"no": "16", "items": [{"name": "Giza 半袖ブロードシャツ", "meta": "CLEL · ¥4,950", "color": "ブルーストライプ"}, {"name": "ウールブレンドスムース ワイドTシャツ", "meta": "CLEL(展示会PICK) · 上代未定", "color": "ライトグレー杢"}, {"name": "ギザコットン デニムパンツ", "meta": "CLEL · ¥9,900", "color": "インディゴ"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": ""}, {"no": "17", "items": [{"name": "ウォッシュドコットンリネン シャツ 長袖", "meta": "CLEL · 上代調整中", "color": "クレイ(ジンジャーブラウン)"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "18", "items": [{"name": "ウォッシュドコットンリネン テーラード 長袖", "meta": "CLEL · 上代調整中", "color": "ブラック"}, {"name": "Giza 鹿子ポロ(再販・新色)", "meta": "CLEL · ¥4,400", "color": "アイスブルー"}, {"name": "パンタロン センタープレス フレアスラックス(新色)", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": ""}, {"no": "19", "items": [{"name": "ウォッシュドコットンリネン テーラード 長袖", "meta": "CLEL · 上代調整中", "color": "ブラック"}, {"name": "ウォッシュドコットンリネン シャツ 長袖", "meta": "CLEL · 上代調整中", "color": "クレイ(ジンジャーブラウン)"}, {"name": "Giza タンクトップ", "meta": "CLEL · ¥2,200", "color": "ブラック"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ドレープカーフレザー ノットデザイン ショルダーバッグ", "meta": "CLEL node. · ¥14,300", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": "Variation"}, {"no": "20", "items": [{"name": "レザーコーティング デニムジャケット", "meta": "CLEL node. · ¥16,500", "color": "ブラック"}, {"name": "ギザオックスフォード クロップド レギュラー長袖シャツ", "meta": "CLEL · ¥5,500", "color": "サックスブルー"}, {"name": "ワンタック センタープレス ストレートスラックス", "meta": "CLEL node. · ¥16,500", "color": "チャコール / ブラック"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": "Variation"}, {"no": "21", "items": [{"name": "ギザ 半袖シャツブルゾン", "meta": "CLEL · ¥6,600", "color": "ウェットサンド"}, {"name": "Giza ボーダー長袖Tシャツ(新色)", "meta": "CLEL · ¥3,630", "color": "ネイビー×エクリュ"}, {"name": "ギザコットン デニムパンツ", "meta": "CLEL · ¥9,900", "color": "インディゴ"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": "Variation"}, {"no": "22", "items": [{"name": "ピークドラペル 1ボタン ダブルブレスト テーラードジャケット", "meta": "CLEL node. · ¥25,300", "color": "チャコール"}, {"name": "COOLMAX カットシアサッカー オープンカラー半袖シャツ", "meta": "CLEL(展示会PICK) · 上代未定", "color": "ブラックストライプ"}, {"name": "パンタロン センタープレス フレアスラックス(新色)", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": "Variation"}, {"no": "23", "items": [{"name": "Giza クルー型カーディガン", "meta": "CLEL · ¥5,500", "color": "ディープグリーン"}, {"name": "レギュラーカラーシャツ", "meta": "CLEL node. · ¥12,100", "color": "ブラック / チャコール"}, {"name": "ウォッシュドコットンリネン パンツ", "meta": "CLEL · 上代調整中", "color": "ブラック / チャコール / ライトグレー"}, {"name": "ドレープカーフレザー ノットデザイン ショルダーバッグ", "meta": "CLEL node. · ¥14,300", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": "Variation"}, {"no": "24", "items": [{"name": "シングルレザーブルゾン", "meta": "CLEL node. · ¥38,500", "color": "ブラック"}, {"name": "Giza 鹿子ポロ(再販・新色)", "meta": "CLEL · ¥4,400", "color": "アイスブルー"}, {"name": "レザーコーティング デニムパンツ", "meta": "CLEL node. · ¥9,900", "color": "ブラック"}, {"name": "ストレッチカーフレザー スクエアトゥ ミドルブーツ", "meta": "CLEL node. · ¥22,000", "color": "ブラック"}], "tag": "Variation"}, {"no": "25", "items": [{"name": "Giza ニットシャツ オープンカラー型", "meta": "CLEL · ¥5,500", "color": "ブラック / チャコール"}, {"name": "Giza タンクトップ", "meta": "CLEL · ¥2,200", "color": "ブラック"}, {"name": "ギザ ハーフパンツ", "meta": "CLEL · ¥5,500", "color": "チャコール"}, {"name": "ビブラムハイソール カウレザー ローカットスニーカー", "meta": "CLEL · ¥13,970", "color": "ブラック"}], "tag": "Variation"}];
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  var LOOK_IDS=cards.map(function(c){return c.getAttribute('data-look');});
+  window.__LOOKS={data:DATA, ids:LOOK_IDS};
+  var lb=document.getElementById('lb'), img=lb.querySelector('.lb-img'), no=lb.querySelector('.lb-no'), ul=lb.querySelector('.lb-items');
+  var cur=0;
+  function show(i){
+    cur=(i+cards.length)%cards.length;
+    var src=cards[cur].querySelector('img').getAttribute('src');
+    img.src=src; img.alt='LOOK '+DATA[cur].no;
+    no.innerHTML='<span>LOOK '+DATA[cur].no+(DATA[cur].tag?' <em class="tag">'+DATA[cur].tag+'</em>':'')+'</span><span class="of">'+DATA[cur].no+' / '+String(cards.length).padStart(2,'0')+'</span>';
+    ul.innerHTML=DATA[cur].items.map(function(it){return '<li><span class="it-name">'+it.name+'</span><span class="it-meta">'+it.color+' · '+it.meta+'</span></li>';}).join('');
+    var lv=lb.querySelector('.vote'); if(lv){ lv.setAttribute('data-look',LOOK_IDS[cur]); if(window.__vote) window.__vote.paint(); }
+    lb.hidden=false; document.body.style.overflow='hidden';
+  }
+  function close(){ lb.hidden=true; document.body.style.overflow=''; }
+  cards.forEach(function(c,i){ c.querySelector('.frame').addEventListener('click',function(){show(i);}); });
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  lb.querySelector('.lb-prev').addEventListener('click',function(){show(cur-1);});
+  lb.querySelector('.lb-next').addEventListener('click',function(){show(cur+1);});
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(lb.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowRight') show(cur+1); if(e.key==='ArrowLeft') show(cur-1); });
+})();
+</script>
+<script src="vote-config.js"></script>
+<script type="module" src="vote.js"></script>
+
+</body>
+</html>
